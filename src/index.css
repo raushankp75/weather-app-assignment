@@ -1,0 +1,7 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+w-[48%] md:px-3 px-2 md:py-2 py-1 rounded-lg outline-none border-2 border-slate-400 hover:border-green-400 focus:border-green-400 active:border-green-400 */
