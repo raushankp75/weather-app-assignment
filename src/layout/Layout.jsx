@@ -1,8 +1,9 @@
 import React from 'react'
+import './layout.css'
 
 const Layout = ({ children }) => {
     return (
-        <div style={{ background: '#42ADFD', width: '100%', height: '100vh' }}>
+        <div className='layout'>
             {children}
         </div>
     )

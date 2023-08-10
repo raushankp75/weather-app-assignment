@@ -1,7 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 
-/* 
-w-[48%] md:px-3 px-2 md:py-2 py-1 rounded-lg outline-none border-2 border-slate-400 hover:border-green-400 focus:border-green-400 active:border-green-400 */
+
+/* common css for both pages */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: #FFFFFF;
+  width: 22%;
+  border-radius: 5px;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 8px 20px;
+}
+
+.goback {
+  color: #43AEFC;
+  cursor: pointer;
+  padding-top: 3px;
+}
+
+.container .heading h1 {
+  color: #43AEFC;
+  font-size: 20px;
+  /* border-bottom: 1px solid grey; */
+}
+
+
+@media only screen and (min-width: 400px) {
+  .container {
+    width: 95%;
+  }
+}
+
+
+@media only screen and (min-width: 600px) {
+  .container {
+    width: 35%;
+  }
+}
+
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    width: 22%;
+  }
+}

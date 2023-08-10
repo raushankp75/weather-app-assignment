@@ -1,0 +1,61 @@
+.weather_report {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.weather_report img {
+    width: 80px;
+    height: 80px;
+}
+
+.temperature {
+    display: flex;
+    font-size: 35px;
+}
+
+.condition {
+    font-size: 22px;
+}
+
+.location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 22px;
+}
+
+.temperature_details {
+    display: flex;
+    /* justify-content: center; */
+    border: 1px solid grey;
+    justify-content: space-between;
+}
+
+.feels_like {
+    display: flex;
+    align-items: center;
+    border-right: 1px solid grey;
+    padding: 10px 32px;
+    width: 100%;
+}
+
+.feels_like_detail_column {
+    display: flex;
+}
+
+.humidity {
+    display: flex;
+    align-items: center;
+    padding: 10px 32px;
+    width: 100%;
+}
+
+
+.humidity_detail_column {
+    display: flex;
+}
