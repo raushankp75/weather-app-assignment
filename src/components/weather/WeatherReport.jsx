@@ -3,23 +3,24 @@ import './WeatherReport.css'
 import WeatherImage from '../../assets/weatherimage.png'
 
 // react icons
-import { WiHumidity } from 'react-icons/wi'
 import { GiSunrise } from 'react-icons/gi'
 import { GiSunset } from 'react-icons/gi'
 import { TiWeatherWindyCloudy } from 'react-icons/ti'
 import { ImLocation } from 'react-icons/im'
 import { BsArrowLeftShort } from 'react-icons/bs'
-import { BsFillCloudsFill } from 'react-icons/bs'
+import { BsThermometerSun } from 'react-icons/bs'
+import { WiHumidity } from 'react-icons/wi'
 import { WiWindy } from 'react-icons/wi'
 import { useNavigate } from 'react-router-dom'
 
 
 
-const WeatherReport = () => {
+const WeatherReport = ({ result }) => {
 
     const navigate = useNavigate();
 
     return (
+
         <div className='container'>
             <div className='heading'>
                 <div className='goback' onClick={() => navigate(-1)}><BsArrowLeftShort size={30} /></div>
@@ -27,49 +28,64 @@ const WeatherReport = () => {
             </div>
             <hr />
 
-            <div className='weather_report'>
-                <img src={WeatherImage} alt="" />
+            {result && Object.keys(result).length > 0 ?
+                (
+                    <>
+                        <div className='weather_report'>
+                            <img src={`http://openweathermap.org/img/w/${result.weather[0].icon}.png`} alt="" />
 
-                <div className='temperature'>
-                    <h2 className=''>13</h2>
-                    <h2>°C</h2>
-                </div>
+                            <div className='temperature'>
+                                <h2 className=''>{Math.round(result.main.temp)}</h2>
+                                <h2>°C</h2>
+                            </div>
 
-                <p className='condition'>broken cloud</p>
+                            <p className='condition'>{result.weather[0].main}</p>
 
-                <p className='location'><ImLocation />Karnatka, Nepal</p>
-
-
-            </div>
+                            <p className='location'><ImLocation />{result.name}, {result.sys.country}</p>
 
 
-            <div className='temperature_details'>
-                <div className='feels_like'>
-                    <ImLocation size={30} />
-                    <div className='feels_like_detail'>
-                        <div className='feels_like_detail_column'>
-                            <h3 className=''>13</h3>
-                            <h3>°C</h3>
                         </div>
 
-                        <p>Feels like</p>
-                    </div>
-                </div>
-                <div className='humidity'>
-                    <ImLocation size={30} />
-                    <div className='humidity_detail'>
-                        <div className='humidity_detail_column'>
-                            <h3 className=''>84</h3>
-                            <h3>%</h3>
+
+                        <div className='temperature_details'>
+                            <div className='feels_like'>
+                                <BsThermometerSun size={30} color='#63BCED' />
+                                <div className='feels_like_detail'>
+                                    <div className='feels_like_detail_column'>
+                                        <h3 className=''>{result.main.feels_like}</h3>
+                                        <h3>°C</h3>
+                                    </div>
+
+                                    <p>Feels like</p>
+                                </div>
+                            </div>
+                            <div className='humidity'>
+                                <WiHumidity size={40} color='#63BCED' />
+                                <div className='humidity_detail'>
+                                    <div className='humidity_detail_column'>
+                                        <h3 className=''>{result.main.humidity}</h3>
+                                        <h3>%</h3>
+                                    </div>
+
+                                    <p>Humidity</p>
+                                </div>
+
+                            </div>
                         </div>
+                    </>
+                )
 
-                        <p>Humidity</p>
+                :
+                (
+                    <div className=''>
+                        <p className=''>Write City name to find Weather report</p>
                     </div>
-
-                </div>
-            </div>
+                )
+            }
 
         </div>
+
+
     )
 }
 
