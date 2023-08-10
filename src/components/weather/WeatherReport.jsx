@@ -19,6 +19,22 @@ const WeatherReport = ({ result }) => {
 
     const navigate = useNavigate();
 
+    let imagePath = '';
+    if (result.weather[0].main == "Clouds") {
+        imagePath = "/src/assets/clouds.png"
+    } else if (result.weather[0].main == "Clear") {
+        imagePath = "/src/assets/clear.png"
+    } else if (result.weather[0].main == "Rain") {
+        imagePath = "/src/assets/rain.png"
+    } else if (result.weather[0].main == "Drizzle") {
+        imagePath = "/src/assets/drizzle.png"
+    } else if (result.weather[0].main == "Mist") {
+        imagePath = "/src/assets/mist.png"
+    } else {
+        imagePath = "/src/assets/clouds.png"
+    }
+
+
     return (
 
         <div className='container'>
@@ -32,7 +48,8 @@ const WeatherReport = ({ result }) => {
                 (
                     <>
                         <div className='weather_report'>
-                            <img src={`http://openweathermap.org/img/w/${result.weather[0].icon}.png`} alt="" />
+                            {/* <img src={`http://openweathermap.org/img/w/${result.weather[0].icon}.png`} alt="" /> */}
+                            <img src={imagePath} alt="" />
 
                             <div className='temperature'>
                                 <h2 className=''>{Math.round(result.main.temp)}</h2>

@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom'
 
 const InputField = ({ setResult }) => {
 
+    const [error, setError] = useState('');
+
     const navigate = useNavigate();
 
     const [data, setData] = useState({ city: '', country: '' })
@@ -18,14 +20,30 @@ const InputField = ({ setResult }) => {
     }
 
     const getWeatherDetails = async () => {
-        // e.preventDefault();
         let response = await getWeather(data.city, data.country)
         setResult(response);
         console.log(response)
 
-        if (response) {
+        if (response.main) {
             navigate('/weather');
+        } else {
+            navigate('/')
         }
+
+        if (response.status == 404) {
+            if (response.status == 404) {
+                setError("Invalid city name")
+            } else {
+                setError('');
+            }
+        } else if (response.status == 400) {
+            if (response.status == 400) {
+                setError("Enter city name to get weather report")
+            } else {
+                setError('');
+            }
+        }
+
     }
 
 
@@ -37,6 +55,10 @@ const InputField = ({ setResult }) => {
             <hr />
 
             <div className='box'>
+                {error && <div className="error">
+                    <p>{error}</p>
+                </div>}
+
                 <input
                     className='text_field'
                     name='city'

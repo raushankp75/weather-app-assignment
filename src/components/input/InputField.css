@@ -15,6 +15,7 @@
 .box .btn {
     background-color: #43AEFC;
     color: #FFFFFF;
+    font-weight: bold;
     padding: 10px 5px;
     width: 100%;
     border: none;
@@ -40,4 +41,14 @@
     height: 20px;
     text-align: center;
     font-size: 18px;
+}
+
+
+.error {
+    background-color: #42ADFD;
+    color: red;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 10px;
+    width: fit-content;
 }
