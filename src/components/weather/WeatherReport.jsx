@@ -1,23 +1,32 @@
 import React from 'react'
 import './WeatherReport.css'
-import WeatherImage from '../../assets/weatherimage.png'
+
+import { useNavigate } from 'react-router-dom'
 
 // react icons
-import { GiSunrise } from 'react-icons/gi'
-import { GiSunset } from 'react-icons/gi'
-import { TiWeatherWindyCloudy } from 'react-icons/ti'
 import { ImLocation } from 'react-icons/im'
 import { BsArrowLeftShort } from 'react-icons/bs'
 import { BsThermometerSun } from 'react-icons/bs'
 import { WiHumidity } from 'react-icons/wi'
-import { WiWindy } from 'react-icons/wi'
-import { useNavigate } from 'react-router-dom'
 
 
 
 const WeatherReport = ({ result }) => {
 
+    // console.log(result)
     const navigate = useNavigate();
+
+    if (Object.keys(result).length === 0) {
+
+        return (
+            <div>
+                <div className='goback' onClick={() => navigate(-1)}><BsArrowLeftShort size={50} color='#fff' /></div>
+                <div className='error'>Please Select A Location To Get Weather Report</div>
+            </div>
+        )
+    }
+
+
 
     let imagePath = '';
     if (result.weather[0].main == "Clouds") {

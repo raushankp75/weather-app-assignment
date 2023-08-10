@@ -45,8 +45,8 @@
 
 
 .error {
-    background-color: #42ADFD;
-    color: red;
+    background-color: rgb(163, 33, 33);
+    color: #FFFFFF;
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 10px;
