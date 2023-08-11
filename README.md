@@ -1,8 +1,40 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Weather App
 
-Currently, two official plugins are available:
+This app is created for gettting location from the browser and show weather. also have a input box to get user's input to show location according to their choice.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Features
+
+- Get Browser Location using Geolocation
+- Used Weather Api (openweathermap Api)
+- Live previews
+- Responsive
+- Cross platform
+
+
+## Installation
+
+Install my-project with npm
+
+```bash
+Run Command git clone https://github.com/raushankp75/weather-app-assignment.git 
+cd weather-app-assignment
+Run Command npm install
+Run Command npm run dev
+
+```
+ Hurray! Enjoy Weather App
+## API Reference
+
+API_KEY = ENTER_YOUR_API_KEY
+
+### Get weather data by city name
+https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric
+
+### Get weather data by latitude and longitude
+https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric
+
+
+
+
