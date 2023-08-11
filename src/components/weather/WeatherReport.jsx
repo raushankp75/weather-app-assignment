@@ -19,10 +19,10 @@ const WeatherReport = ({ result }) => {
     if (Object.keys(result).length === 0) {
 
         return (
-            <div>
+            <>
                 <div className='goback' onClick={() => navigate(-1)}><BsArrowLeftShort size={50} color='#fff' /></div>
                 <div className='error'>Please Select A Location To Get Weather Report</div>
-            </div>
+            </>
         )
     }
 
@@ -30,17 +30,17 @@ const WeatherReport = ({ result }) => {
 
     let imagePath = '';
     if (result.weather[0].main == "Clouds") {
-        imagePath = "/src/assets/clouds.png"
+        imagePath = "https://drive.google.com/uc?export=view&id=16uPIDWnScPXSVMUyF1REfSxPD8Al9OAs"
     } else if (result.weather[0].main == "Clear") {
-        imagePath = "/src/assets/clear.png"
+        imagePath = "https://drive.google.com/uc?export=view&id=1OC25lQ8hPEm880O9Q-RTkKR2SkGLSlc1"
     } else if (result.weather[0].main == "Rain") {
-        imagePath = "/src/assets/rain.png"
+        imagePath = "https://drive.google.com/uc?export=view&id=13Ha8ojfodwZW2dhooQnkJXkxnZbOusfi"
     } else if (result.weather[0].main == "Drizzle") {
-        imagePath = "/src/assets/drizzle.png"
+        imagePath = "https://drive.google.com/uc?export=view&id=1DwhlvvfoXiZqKZLaAt7j15egJNQZdnyE"
     } else if (result.weather[0].main == "Mist") {
-        imagePath = "/src/assets/mist.png"
+        imagePath = "https://drive.google.com/uc?export=view&id=1Ff1zVHvNPMublFCdjk3vjGDvpCPPK0z6"
     } else {
-        imagePath = "/src/assets/clouds.png"
+        imagePath = "https://drive.google.com/uc?export=view&id=16uPIDWnScPXSVMUyF1REfSxPD8Al9OAs"
     }
 
 
