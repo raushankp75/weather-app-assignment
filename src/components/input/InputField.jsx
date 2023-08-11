@@ -62,32 +62,34 @@ const InputField = ({ setResult }) => {
     const [location, setLocation] = useState(null);
 
 
-    const getLocation = () => {
-
-        const savePositionToState = (position) => {
-            setLatitude(position.coords.latitude);
-            setLongitude(position.coords.longitude);
-        }
-
-        // console.log(latitude, longitude)
-
-        if (navigator.geolocation) {
-            window.navigator.geolocation.getCurrentPosition(savePositionToState);
-        }
-    }
-
 
     const getCurrentLocationWeather = async () => {
-        try {
-            const response = await axios.get(`${API_URL}?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`);
-            // console.log(response.data)
 
-            if (response.data.name !== "Globe") {
-                setLocation(response.data)
-                setData({ ...data, city: response.data.name })
+
+        try {
+
+
+
+            const savePositionToState = async (position) => {
+                setLatitude(position.coords.latitude);
+                setLongitude(position.coords.longitude);
+                const response = await axios.get(`${API_URL}?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`);
+                // console.log(response.data)
+
+                if (response.data.name !== "Globe") {
+                    setLocation(response.data)
+                    setData({ ...data, city: response.data.name })
+                }
+                else {
+                    setLocation({ ...response.data, name: "Click on Get Device Location" })
+                }
+
+
             }
-            else {
-                setLocation({ ...response.data, name: "Click to allow and then get your device location" })
+
+
+            if (navigator.geolocation) {
+                window.navigator.geolocation.getCurrentPosition(savePositionToState);
             }
 
         } catch (error) {
@@ -98,9 +100,6 @@ const InputField = ({ setResult }) => {
     }
 
 
-    useEffect(() => {
-        getCurrentLocationWeather();
-    }, [])
 
 
 
@@ -148,7 +147,7 @@ const InputField = ({ setResult }) => {
                 }
 
 
-                <button type='submit' onClick={() => { getLocation(); getCurrentLocationWeather() }} className='btn'>Get Device Location</button>
+                <button type='submit' onClick={() => { getCurrentLocationWeather() }} className='btn'>Get Device Location</button>
             </div>
         </div >
     )

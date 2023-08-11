@@ -9,6 +9,13 @@ import { BsArrowLeftShort } from 'react-icons/bs'
 import { BsThermometerSun } from 'react-icons/bs'
 import { WiHumidity } from 'react-icons/wi'
 
+import CloudLoader from '../../assets/clouds-sky.gif'
+
+import Cloud from '../../assets/clouds.png'
+import Clear from '../../assets/clear.png'
+import Rain from '../../assets/rain.png'
+import Drizzle from '../../assets/drizzle.png'
+import Mist from '../../assets/mist.png'
 
 
 const WeatherReport = ({ result }) => {
@@ -25,22 +32,20 @@ const WeatherReport = ({ result }) => {
             </>
         )
     }
-
-
-
     let imagePath = '';
+
     if (result.weather[0].main == "Clouds") {
-        imagePath = "https://drive.google.com/uc?export=view&id=16uPIDWnScPXSVMUyF1REfSxPD8Al9OAs"
+        imagePath = Cloud
     } else if (result.weather[0].main == "Clear") {
-        imagePath = "https://drive.google.com/uc?export=view&id=1OC25lQ8hPEm880O9Q-RTkKR2SkGLSlc1"
+        imagePath = Clear
     } else if (result.weather[0].main == "Rain") {
-        imagePath = "https://drive.google.com/uc?export=view&id=13Ha8ojfodwZW2dhooQnkJXkxnZbOusfi"
+        imagePath = Rain
     } else if (result.weather[0].main == "Drizzle") {
-        imagePath = "https://drive.google.com/uc?export=view&id=1DwhlvvfoXiZqKZLaAt7j15egJNQZdnyE"
+        imagePath = Drizzle
     } else if (result.weather[0].main == "Mist") {
-        imagePath = "https://drive.google.com/uc?export=view&id=1Ff1zVHvNPMublFCdjk3vjGDvpCPPK0z6"
+        imagePath = Mist
     } else {
-        imagePath = "https://drive.google.com/uc?export=view&id=16uPIDWnScPXSVMUyF1REfSxPD8Al9OAs"
+        imagePath = Cloud
     }
 
 
@@ -57,8 +62,8 @@ const WeatherReport = ({ result }) => {
                 (
                     <>
                         <div className='weather_report'>
-                            {/* <img src={`http://openweathermap.org/img/w/${result.weather[0].icon}.png`} alt="" /> */}
-                            <img src={imagePath} alt="" />
+
+                            <img src={result && imagePath} alt="Weather Image" />
 
                             <div className='temperature'>
                                 <h2 className=''>{Math.round(result.main.temp)}</h2>
