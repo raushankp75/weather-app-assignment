@@ -6,6 +6,7 @@ This app is created for gettting location from the browser and show weather. als
 
 ## Features
 
+- Get user input to get weather report
 - Get Browser Location using Geolocation
 - Used Weather Api (openweathermap Api)
 - Live previews
