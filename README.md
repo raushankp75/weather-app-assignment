@@ -18,10 +18,10 @@ This app is created for gettting location from the browser and show weather. als
 Install my-project with npm
 
 ```bash
-Run Command git clone https://github.com/raushankp75/weather-app-assignment.git 
+git clone https://github.com/raushankp75/weather-app-assignment.git 
 cd weather-app-assignment
-Run Command npm install
-Run Command npm run dev
+npm install
+npm run dev
 
 ```
  Hurray! Enjoy Weather App
