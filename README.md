@@ -1,7 +1,7 @@
 
 # Weather App
 
-This app is created for gettting location from the browser and show weather. also have a input box to get user's input to show location according to their choice.
+This app is created for gettting user's input to show weather report according to their choice. One another feature is get location from the browser and show weather.
 
 
 ## Features
@@ -16,7 +16,7 @@ This app is created for gettting location from the browser and show weather. als
 
 ## Installation
 
-Install my-project with npm
+Install on local device my-project with npm
 
 ```bash
 git clone https://github.com/raushankp75/weather-app-assignment.git 
