@@ -106,7 +106,7 @@ const InputField = ({ setResult }) => {
     return (
         <div className='container'>
             <div className='heading'>
-                <h1>Weather App</h1>
+                <h1 style={{padding:'4px 0'}}>Weather App</h1>
             </div>
             <hr />
 
