@@ -44,6 +44,10 @@
     font-size: 12px;
 }
 
+.feels_like_detail{
+    padding-left: 6px;
+}
+
 .feels_like_detail_column {
     display: flex;
 }

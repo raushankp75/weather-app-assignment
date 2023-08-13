@@ -1,3 +1,7 @@
+hr {
+    color: gray;
+}
+
 .box {
     display: flex;
     flex-direction: column;
@@ -10,12 +14,23 @@
     padding: 10px 5px;
     font-size: 16px;
     text-align: center;
+    border-radius: 5px;
+    border: 1px solid gray
+}
+
+.box .text_field:focus {
+    outline: #43AEFC;
+    border: 1px solid #43AEFC
+}
+
+.box .text_field::placeholder {
+    color: grey;
+    opacity: 0.7;
 }
 
 .box .btn {
     background-color: #43AEFC;
     color: #FFFFFF;
-    font-weight: bold;
     padding: 10px 5px;
     width: 100%;
     border: none;
@@ -31,16 +46,19 @@
 .orSection hr {
     position: relative;
     top: 14px;
+    color: gray;
 }
 
 .orSection p {
     position: relative;
     left: 40%;
     background: #FFFFFF;
-    width: 50px;
+    width: 40px;
     height: 20px;
     text-align: center;
     font-size: 18px;
+    bottom: 2px;
+    color: gray;
 }
 
 
