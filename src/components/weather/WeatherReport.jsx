@@ -9,7 +9,6 @@ import { BsArrowLeftShort } from 'react-icons/bs'
 import { BsThermometerSun } from 'react-icons/bs'
 import { WiHumidity } from 'react-icons/wi'
 
-import CloudLoader from '../../assets/clouds-sky.gif'
 
 import Cloud from '../../assets/clouds.png'
 import Clear from '../../assets/clear.png'
@@ -67,7 +66,7 @@ const WeatherReport = ({ result }) => {
 
                             <div className='temperature'>
                                 <h2 className=''>{Math.round(result.main.temp)}</h2>
-                                <h2>°C</h2>
+                                °<h2>C</h2>
                             </div>
 
                             <p className='condition'>{result.weather[0].main}</p>

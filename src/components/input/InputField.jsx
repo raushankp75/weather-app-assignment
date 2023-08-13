@@ -23,8 +23,8 @@ const InputField = ({ setResult }) => {
 
 
     // here get weather details
-    const getWeatherDetails = async () => {
-        let response = await getWeather(data.city)
+    const getWeatherDetails = async (city) => {
+        let response = await getWeather(city)
         setResult(response);
         // console.log(response)
 
@@ -57,11 +57,6 @@ const InputField = ({ setResult }) => {
     const API_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 
-    const [latitude, setLatitude] = useState(0);
-    const [longitude, setLongitude] = useState(0);
-    const [location, setLocation] = useState(null);
-
-
 
     const getCurrentLocationWeather = async () => {
 
@@ -71,25 +66,28 @@ const InputField = ({ setResult }) => {
 
 
             const savePositionToState = async (position) => {
-                setLatitude(position.coords.latitude);
-                setLongitude(position.coords.longitude);
-                const response = await axios.get(`${API_URL}?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`);
-                // console.log(response.data)
+                try {
+                    const response = await axios.get(`${API_URL}?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${API_KEY}&units=metric`);
+                    // console.log(response.data)
 
-                if (response.data.name !== "Globe") {
-                    setLocation(response.data)
-                    setData({ ...data, city: response.data.name })
+                    if (response.data.name !== "Globe") {
+                        // setLocation(response.data)
+                        setData({ ...data, city: response.data.name })
+                        getWeatherDetails(response.data.name)
+                    }
+                } catch (error) {
+                    console.log(error)
                 }
-                else {
-                    setLocation({ ...response.data, name: "Click on Get Device Location" })
-                }
+
 
 
             }
 
 
             if (navigator.geolocation) {
-                window.navigator.geolocation.getCurrentPosition(savePositionToState);
+                navigator.geolocation.getCurrentPosition(savePositionToState, (error) => {
+                    console.log("Error Getting Current Location", error)
+                });
             }
 
         } catch (error) {
@@ -125,26 +123,31 @@ const InputField = ({ setResult }) => {
                     onChange={(e) => handleChange(e)}
                     // value={location.name?.length < 20 ? location?.name : ""}
                     value={data.city}
+                    onKeyUp={(e) => {
+                        if (e.key == "Enter") {
+                            getWeatherDetails(data.city)
+                        }
+                    }}
                 />
 
-                <button
+                {/* <button
                     type='submit'
                     className='btn'
                     onClick={() => getWeatherDetails()}
                 >
                     Get Weather
-                </button>
+                </button> */}
 
                 <div className='orSection'>
                     <hr />
                     <p>or</p>
                 </div>
 
-                {location &&
+                {/* {location &&
                     <div>
                         <p>{location.name}. {location.sys.country}</p>
                     </div>
-                }
+                } */}
 
 
                 <button type='submit' onClick={() => { getCurrentLocationWeather() }} className='btn'>Get Device Location</button>

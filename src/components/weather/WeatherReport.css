@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
     padding: 20px;
 }
 
@@ -17,16 +16,16 @@
     font-size: 35px;
 }
 
-.condition {
-    font-size: 22px;
-}
+/* .condition {
+    font-size: 18px;
+} */
 
 .location {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5px;
-    font-size: 22px;
+    padding-top: 8px;
 }
 
 .temperature_details {
@@ -42,6 +41,7 @@
     border-right: 1px solid grey;
     padding: 10px 32px;
     width: 100%;
+    font-size: 12px;
 }
 
 .feels_like_detail_column {
@@ -53,6 +53,7 @@
     align-items: center;
     padding: 10px 32px;
     width: 100%;
+    font-size: 12px;
 }
 
 
