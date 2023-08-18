@@ -12,21 +12,30 @@ const InputField = ({ setResult }) => {
 
     const navigate = useNavigate();
 
-    const [data, setData] = useState({ city: '', country: '' })
+    const [data, setData] = useState({ city: '' })
 
     // changing input value
     const handleChange = (e) => {
-        // console.log(e.target.value)
+        console.log(e.target.value)
         setData({ ...data, [e.target.name]: e.target.value })
 
+    }
+
+    const handleOptionChange = (e) => {
+        console.log(e.target.value)
+        setData({ ...data, [e.target.name]: e.target.value })
+
+        getWeatherDetails(e.target.value);
     }
 
 
     // here get weather details
     const getWeatherDetails = async (city) => {
+        console.log(city);
+        
         let response = await getWeather(city)
         setResult(response);
-        // console.log(response)
+        console.log(response)
 
         if (response.main) {
             navigate('/weather');
@@ -106,7 +115,7 @@ const InputField = ({ setResult }) => {
     return (
         <div className='container'>
             <div className='heading'>
-                <h1 style={{padding:'4px 0'}}>Weather App</h1>
+                <h1 style={{ padding: '4px 0' }}>Weather App</h1>
             </div>
             <hr />
 
@@ -129,6 +138,15 @@ const InputField = ({ setResult }) => {
                         }
                     }}
                 />
+
+
+                <select className='select_option' name="city" onChange={(e) => handleOptionChange(e)} value={data.city} >
+                    <option value="" style={{ color: 'blue' }}>Select a city name</option>
+                    <option value="patna" >patna</option>
+                    <option value="delhi" >delhi</option>
+                    <option value="punjab" >punjab</option>
+                    <option value="goa" >goa</option>
+                </select>
 
                 {/* <button
                     type='submit'
